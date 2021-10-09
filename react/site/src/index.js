@@ -13,9 +13,26 @@ import NTC from './infoC/NTC/home'
 import NTCDenunciaDetalhada from './infoC/NTC/denunciaDetalhada'
 import SWT from './infoD/SweetCherry'
 
+
+const rootElement = document.getElementById("root");
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+  <Switch>
+    <Route path="/" exact={true} component={App} />
+    <Route path="/detalhe" component={DetalheProduto} />
+    <Route path="/carrinho" component={Carrinho} />
+    
+    <Route path="/infoD/swt" exact={true} component={SWT} />
+    <Route path="/infoC/ntc" exact={true} component={NTC} />
+    <Route path="/infoC/ntc/denunciaDetalhada" exact={true} component={NTCDenunciaDetalhada} />
+
+    <Route path="/teste" component={Teste} />
+    <Route path="/infoX/contador" exact={true} component={Contador} />
+    <Route path="/infoX/pedido" component={Pedido} />
+    <Route path="/infoX/conclusao" component={ConclusaoPedido} />
+
+  </Switch>
+</BrowserRouter>,
   document.getElementById('root')
 );
